@@ -1,0 +1,8 @@
+﻿  BBox.cpp
+  Color.cpp
+  Geometry.cpp
+  Image.cpp
+  Transform.cpp
+  正在生成代码...
+Geometry.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+  Hebex.vcxproj -> C:\Users\XXY\Desktop\Hebex\Hebex\x64\Debug\Hebex.lib
