@@ -4,8 +4,11 @@
 #include "Core/Geometry.h"
 #include <vector>
 #include <string>
-using namespace Hebex;
 
+#include <chrono>
+#include "Core/MemoryPool.h"
+using namespace Hebex;
+using namespace std::chrono;
 int main() {
 	/*
 	const int width = 1920;
@@ -29,6 +32,33 @@ int main() {
 
 	std::cerr << Point3f(1, 0, 0) - Point3f(0, 1, 0) << std::endl;
 	std::cerr << (Point3f(1, 0, 0) - Point3f(0, 1, 0)).Length() << std::endl;
+
+	struct Node {
+		char ch;
+		int num[3];
+		float i;
+	};
+
+	auto start = system_clock::now();
+	for (int i = 0; i < 10000000; ++i) {
+		Node *ptr = new Node();
+		delete ptr;
+	}
+	auto end = system_clock::now();
+	auto duration = duration_cast<milliseconds>(end - start);
+	std::cout << duration.count() << "ms" << std::endl;
+
+	start = system_clock::now();
+	{
+		MemoryPool memoryPool;
+		for (int i = 0; i < 10000000; ++i) {
+			Node *ptr = ARENA_ALLOC(memoryPool, Node);
+		}
+	}
+
+	end = system_clock::now();
+	duration = duration_cast<milliseconds>(end - start);
+	std::cout << duration.count() << "ms" << std::endl;
 	system("pause");
 	return 0;
 }

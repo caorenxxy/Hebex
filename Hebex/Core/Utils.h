@@ -1,33 +1,15 @@
 #ifndef UTILS_H
 #define UTILS_H
-
 /*
 #ifndef INFINITY
 #define INFINITY FLT_MAX
 #endif // INFINITY
 */
-#include <stdint.h> 
-#include <algorithm>
+//#include <stdint.h> 
+#include "Hebex.h"
 
 
 
-#if (defined _MSC_VER && _MSC_VER < 1500)
-typedef __int8 int8_t;
-typedef unsigned __int8 uint8_t;
-typedef __int16 int16_t;
-typedef unsigned __int16 uint16_t;
-typedef __int32 int32_t;
-typedef unsigned __int32 uint32_t;
-typedef __int64 int64_t;
-typedef unsigned __int64 uint64_t;
-#else 
-#include <stdint.h> 
-#endif
-
-#if defined(_WIN32) || defined(_WIN64)
-#include <float.h>
-#define isinf(f) (!_finite((f)))
-#endif
 
 
 namespace Hebex
@@ -39,7 +21,7 @@ namespace Hebex
 
 
 	inline bool IsEqual(float a, float b, const float epsilon = 1e-7f) {
-		return fabs(a - b) <= epsilon;
+		return std::fabs(a - b) <= epsilon;
 	}
 
 	template <typename T>
@@ -47,14 +29,15 @@ namespace Hebex
 		return std::isnan(x);
 	}
 
-	inline bool IsPowerOf2(uint32_t n) {
-		return (n & (n - 1)) == 0;
+	template <typename T>
+	inline constexpr bool IsPowerOf2(T v) {
+		return v && !(v & (v - 1));
 	}
 
 
 	inline float Log2(float n) {
 		static float invLog2 = 1.0f / logf(2.0f);
-		return logf(n) * invLog2;
+		return std::logf(n) * invLog2;
 	}
 
 	inline float Clamp(float f, float low, float high) {
