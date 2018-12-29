@@ -24,6 +24,7 @@
     <ClCompile Include="Core\Geometry.cpp" />
     <ClCompile Include="Core\Image.cpp" />
     <ClCompile Include="Core\MemoryPool.cpp" />
+    <ClCompile Include="Core\Shape.cpp" />
     <ClCompile Include="Core\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,8 +33,10 @@
     <ClInclude Include="Core\Geometry.h" />
     <ClInclude Include="Core\Hebex.h" />
     <ClInclude Include="Core\Image.h" />
+    <ClInclude Include="Core\Intersection.h" />
     <ClInclude Include="Core\MemoryPool.h" />
     <ClInclude Include="Core\Ray.h" />
+    <ClInclude Include="Core\Shape.h" />
     <ClInclude Include="Core\Transform.h" />
     <ClInclude Include="Core\Utils.h" />
     <ClInclude Include="ForwardDecl.h" />

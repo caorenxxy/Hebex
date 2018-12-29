@@ -7,6 +7,8 @@
 
 #include <chrono>
 #include "Core/MemoryPool.h"
+
+
 using namespace Hebex;
 using namespace std::chrono;
 int main() {
@@ -39,10 +41,11 @@ int main() {
 		float i;
 	};
 
+	const int iterNum = 1e7;
+
 	auto start = system_clock::now();
-	for (int i = 0; i < 10000000; ++i) {
-		Node *ptr = new Node();
-		delete ptr;
+	for (int i = 0; i < iterNum; ++i) {
+		std::shared_ptr<Node> ptr(new Node());
 	}
 	auto end = system_clock::now();
 	auto duration = duration_cast<milliseconds>(end - start);
@@ -51,7 +54,7 @@ int main() {
 	start = system_clock::now();
 	{
 		MemoryPool memoryPool;
-		for (int i = 0; i < 10000000; ++i) {
+		for (int i = 0; i < iterNum; ++i) {
 			Node *ptr = ARENA_ALLOC(memoryPool, Node);
 		}
 	}

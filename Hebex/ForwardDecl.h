@@ -13,10 +13,17 @@ namespace Hebex
 	class Point3;
 	template <typename T>
 	class Normal3;
+	class Transform;
 	class BBox;
 	class Medium;
 	class Ray;
 	class Color;
+	class MemoryPool;
+	class Primitive;
+	class BSDF;
+	class BSSRDF;
+	class Intersection;
+	class Shape;
 }
 
 #endif
