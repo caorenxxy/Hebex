@@ -3,7 +3,7 @@
 #include "Geometry.h"
 #include "Ray.h"
 #include "BBox.h"
-
+#include "Hebex.h"
 namespace Hebex
 {
 	// Matrix4x4 Declarations
@@ -55,6 +55,18 @@ namespace Hebex
 
 		friend Matrix4x4 Inverse(const Matrix4x4 &);
 
+		friend std::ostream &operator<<(std::ostream &os, const Matrix4x4 &mat) {
+			os << "[" << std::endl;
+			for (int i = 0; i < 4; ++i) {
+				for (int j = 0; j < 4; ++j) {
+					os << mat.m[i][j] << " ";
+				}
+				os << std::endl;
+			}
+			os << "]" << std::endl;
+			return os;
+		}
+
 		float m[4][4];
 	};
 
@@ -86,6 +98,10 @@ namespace Hebex
 
 		friend Transform Transpose(const Transform &t) {
 			return Transform(Transpose(t.m), Transpose(t.mInv));
+		}
+
+		friend Transform TransformNormal(const Transform &t) {
+			return Transpose(Inverse(t));
 		}
 
 		bool operator==(const Transform &t) const {
@@ -145,6 +161,12 @@ namespace Hebex
 		Transform operator*(const Transform &t2) const;
 
 		bool SwapsHandedness() const;
+
+		friend std::ostream &operator<<(std::ostream &os, const Transform &t) {
+			os << "mat:" << std::endl << t.m;
+			os << "inv mat:" << std::endl << t.mInv;
+			return os;
+		}
 	private:
 		// Transform Private Data
 		Matrix4x4 m, mInv;

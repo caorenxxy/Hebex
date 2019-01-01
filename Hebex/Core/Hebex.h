@@ -25,18 +25,20 @@ typedef unsigned __int64 uint64_t;
 #endif
 
 
+
 #include <string>
 #include <vector>
 #include <list>
 #include <algorithm>
 #include <cinttypes>
 #include <cmath>
-#include <malloc.h>
+#include <iostream>
 
+#include <malloc.h>
 #include <stdint.h>
 #include <float.h>
 #include <intrin.h>
-
+#include <string.h>
 
 #ifndef L1_CACHE_LINE_SIZE
 #define L1_CACHE_LINE_SIZE 64
@@ -44,5 +46,9 @@ typedef unsigned __int64 uint64_t;
 
 // Global Macros
 #define ALLOCA(TYPE, COUNT) (TYPE *) alloca((COUNT) * sizeof(TYPE))
+
+#define HEBEX_ASSERT(expr) \
+	do { if(!(expr)) { std::cerr << "Error: assertion `"#expr"' failed at " << __FILE__ << ":" << __LINE__ << std::endl; exit(2); } } while(0)
+#else
 
 #endif

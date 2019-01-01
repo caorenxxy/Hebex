@@ -2,8 +2,9 @@
 #define SHAPE_H
 
 #include "Hebex.h"
+#include "Geometry.h"
 #include "../ForwardDecl.h"
-#include "Transform.h"
+
 namespace Hebex
 {
 	class Shape {
@@ -21,7 +22,7 @@ namespace Hebex
 
 		virtual void Refine(std::vector<std::shared_ptr<Shape> > &refined) const;
 		
-		virtual bool Intersect(const Ray &ray, Intersection &isect) const = 0;
+		virtual bool Intersect(const Ray &ray, Intersection *isect) const = 0;
 		
 		virtual bool IntersectP(const Ray &ray) const = 0;
 		

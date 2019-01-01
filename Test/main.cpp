@@ -4,11 +4,12 @@
 #include "Core/Geometry.h"
 #include <vector>
 #include <string>
-
+#include "Core/Ray.h"
+#include "Shape/Sphere.h"
 #include <chrono>
 #include "Core/MemoryPool.h"
-
-
+#include "Core/Transform.h"
+#include "Core/Intersection.h"
 using namespace Hebex;
 using namespace std::chrono;
 int main() {
@@ -30,7 +31,7 @@ int main() {
 	image.SetBuffer(buffer);
 	std::string filename = "test.bmp";
 	image.Save(filename, 2.2);
-	*/
+	
 
 	std::cerr << Point3f(1, 0, 0) - Point3f(0, 1, 0) << std::endl;
 	std::cerr << (Point3f(1, 0, 0) - Point3f(0, 1, 0)).Length() << std::endl;
@@ -58,10 +59,21 @@ int main() {
 			Node *ptr = ARENA_ALLOC(memoryPool, Node);
 		}
 	}
-
 	end = system_clock::now();
 	duration = duration_cast<milliseconds>(end - start);
 	std::cout << duration.count() << "ms" << std::endl;
+	*/
+	
+	Ray ray(Point3f(-5, 0, 0), Vec3f(1, 0, 0));
+	Transform o2w = Translate(Vec3f(1, 0, 0));
+	Transform w2o = Inverse(o2w);
+	std::cout << o2w << w2o << std::endl;
+	Sphere sphere(&o2w, &w2o, 2.0);
+	Intersection isect;
+	sphere.Intersect(ray, &isect);
+
+	std::cout << isect.mPosition << std::endl;
+
 	system("pause");
 	return 0;
 }

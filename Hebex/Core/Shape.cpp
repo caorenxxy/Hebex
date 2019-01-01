@@ -1,6 +1,10 @@
 #include "Shape.h"
 #include "Intersection.h"
 #include "Geometry.h"
+#include "BBox.h"
+#include "Ray.h"
+#include "Transform.h"
+
 namespace Hebex
 {
 	Shape::Shape(const Transform *o2w, const Transform *w2o) :
@@ -31,7 +35,7 @@ namespace Hebex
 	float Shape::Pdf(const Point3f &p, const Vec3f &wi) const {
 		Intersection isect;
 		Ray ray(p, wi, 1e-3f);
-		if (!Intersect(ray, isect)) return 0.f;
+		if (!Intersect(ray, &isect)) return 0.f;
 
 		float pdf = DistanceSquared(p, isect.mPosition) / (AbsDot(isect.mNormal, -wi) * Area());
 

@@ -208,11 +208,12 @@ namespace Hebex
 		return os;
 	}
 
+	/*
 	typedef Vec2<float> Vec2f;
 	typedef Vec2<int> Vec2i;
 	typedef Vec3<float> Vec3f;
 	typedef Vec3<int> Vec3i;
-
+	*/
 	
 	// Point Declarations
 	template <typename T>
@@ -463,11 +464,12 @@ namespace Hebex
 		return os;
 	}
 
+	/*
 	typedef Point2<float> Point2f;
 	typedef Point2<int> Point2i;
 	typedef Point3<float> Point3f;
 	typedef Point3<int> Point3i;
-
+	*/
 	
 	// Normal Declarations
 	template <typename T>
