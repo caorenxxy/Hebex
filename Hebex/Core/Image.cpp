@@ -1,5 +1,5 @@
 #include "Image.h"
-#include <fstream>
+
 namespace Hebex
 {
 	void Image::Setup(float aResolutionX, float aResolutionY)

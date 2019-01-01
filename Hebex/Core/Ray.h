@@ -1,7 +1,9 @@
 #ifndef RAY_H
 #define RAY_H
-#include "Geometry.h"
+
 #include "../ForwardDecl.h"
+#include "Geometry.h"
+
 namespace Hebex 
 {
 	class Ray {

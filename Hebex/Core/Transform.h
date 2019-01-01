@@ -4,6 +4,7 @@
 #include "Ray.h"
 #include "BBox.h"
 #include "Hebex.h"
+
 namespace Hebex
 {
 	// Matrix4x4 Declarations

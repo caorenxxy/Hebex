@@ -1,9 +1,10 @@
 #ifndef SAMPLING_H
 #define SAMPLING_H
 
+#include "../ForwardDecl.h"
 #include "Hebex.h"
 #include "Utils.h"
-#include "../ForwardDecl.h"
+
 namespace Hebex 
 {
 	struct Distribution1D {

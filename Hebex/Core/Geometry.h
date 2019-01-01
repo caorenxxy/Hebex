@@ -1,9 +1,9 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
+#include "../ForwardDecl.h"
 #include "Utils.h"
 #include "Hebex.h"
-#include "../ForwardDecl.h"
 
 namespace Hebex 
 {

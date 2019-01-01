@@ -8,10 +8,6 @@
 //#include <stdint.h> 
 #include "Hebex.h"
 
-
-
-
-
 namespace Hebex
 {
 	const float PI = 3.14159265358979323f;

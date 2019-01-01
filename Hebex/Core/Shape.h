@@ -1,9 +1,9 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include "../ForwardDecl.h"
 #include "Hebex.h"
 #include "Geometry.h"
-#include "../ForwardDecl.h"
 
 namespace Hebex
 {

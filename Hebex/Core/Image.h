@@ -1,9 +1,8 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include "Hebex.h"
 #include "Utils.h"
-#include <string>
-#include <vector>
 #include "Color.h"
 
 namespace Hebex 

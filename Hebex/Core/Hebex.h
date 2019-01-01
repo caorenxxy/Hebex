@@ -33,6 +33,7 @@ typedef unsigned __int64 uint64_t;
 #include <cinttypes>
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 #include <malloc.h>
 #include <stdint.h>

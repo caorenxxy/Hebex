@@ -64,11 +64,11 @@ int main() {
 	std::cout << duration.count() << "ms" << std::endl;
 	*/
 	
-	Ray ray(Point3f(-5, 0, 0), Vec3f(1, 0, 0));
-	Transform o2w = Translate(Vec3f(1, 0, 0));
+	Ray ray(Point3f(-5, 0, 0), Normalize(Vec3f(3, 2, 0)));
+	Transform o2w = Translate(Vec3f(3, 2, 0));
 	Transform w2o = Inverse(o2w);
 	std::cout << o2w << w2o << std::endl;
-	Sphere sphere(&o2w, &w2o, 2.0);
+	Sphere sphere(&o2w, &w2o, 5.0);
 	Intersection isect;
 	sphere.Intersect(ray, &isect);
 

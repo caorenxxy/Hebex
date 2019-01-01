@@ -1,8 +1,9 @@
 #ifndef COLOR_H
 #define COLOR_H
+
+#include "Hebex.h"
 #include "Utils.h"
 
-#include <iostream>
 namespace Hebex 
 {
 	class Color {

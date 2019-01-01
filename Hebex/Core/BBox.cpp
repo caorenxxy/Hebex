@@ -1,5 +1,6 @@
 #include "BBox.h"
 #include "Ray.h"
+
 namespace Hebex 
 {
 	BBox Union(const BBox &b, const Point3f &p) {
